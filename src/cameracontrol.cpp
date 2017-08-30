@@ -137,7 +137,7 @@ void CameraControl::onButtonEvt(Button *b, Button::Event evt)
             beginPreset(buttonToPreset(b->id()));
             break;
 
-        case Button::Hold:
+        case Button::HoldRelease:
             capturePreset(buttonToPreset(b->id()));
             break;
 
