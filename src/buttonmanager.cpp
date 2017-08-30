@@ -219,7 +219,6 @@ void ButtonManager::dispatchEvt(Button *b, Button::Event evt)
         break;
 
     case Io::ButtonA:
-        Ui::instance.splash.onAButtonEvent(b, evt);
         FlightManager::instance.onAButtonEvt(b, evt);
         VehicleConnector::instance.onButtonEvent(b, evt);
         ButtonFunction::onButtonEvent(b, evt);
@@ -229,7 +228,6 @@ void ButtonManager::dispatchEvt(Button *b, Button::Event evt)
         FlightManager::instance.onBButtonEvt(b, evt);
         VehicleConnector::instance.onButtonEvent(b, evt);
         ButtonFunction::onButtonEvent(b, evt);
-        Dsm::instance.onBButtonEvt(b, evt);
         break;
 
     case Io::ButtonPreset1:
@@ -250,6 +248,11 @@ void ButtonManager::dispatchEvt(Button *b, Button::Event evt)
         // into manual mode, it's not possible for sololink
         // to treat inadvertent button presses as mode change commands
         return;
+    }
+
+    if ( evt == Button::Release || (evt == Button::DoubleClick)  ||
+       (evt == Button::Hold) || (evt == Button::ShortHold) ) {
+        return; // Not sending these events to Solo since they aren't used.
     }
 
     // store event for forwarding
