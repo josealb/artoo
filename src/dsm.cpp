@@ -24,11 +24,9 @@ void Dsm::onLoiterButtonEvt(Button *b, Button::Event evt)
     // HoldRelease (2 sec) sets CH7 low. LongHold (3 sec) sets CH7 high.
     if ( evt == Button::LongHold ) {
         channels[DsmCh7] = DsmHighVal;
-        Haptic::startPattern(Haptic::SingleLong);
         Ui::instance.pendEvent(Event::CH7high);    
     } else if ( evt == Button::HoldRelease ) {
         channels[DsmCh7] = DsmLowVal;
-        Haptic::startPattern(Haptic::SingleMedium);
         Ui::instance.pendEvent(Event::CH7low);
     }
 }

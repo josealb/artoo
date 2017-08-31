@@ -213,32 +213,38 @@ void ButtonManager::dispatchEvt(Button *b, Button::Event evt)
         break;
 
     case Io::ButtonLoiter:
+        ButtonFunction::onButtonExtEvent(b, evt);
         FlightManager::instance.onPauseButtonEvt(b, evt);
         Dsm::instance.onLoiterButtonEvt(b, evt);
         ButtonFunction::onButtonEvent(b, evt);
         break;
 
     case Io::ButtonA:
+        ButtonFunction::onButtonExtEvent(b, evt);
         FlightManager::instance.onAButtonEvt(b, evt);
         VehicleConnector::instance.onButtonEvent(b, evt);
         ButtonFunction::onButtonEvent(b, evt);
         break;
 
     case Io::ButtonB:
+        ButtonFunction::onButtonExtEvent(b, evt);
         FlightManager::instance.onBButtonEvt(b, evt);
         VehicleConnector::instance.onButtonEvent(b, evt);
         ButtonFunction::onButtonEvent(b, evt);
         break;
 
     case Io::ButtonPreset1:
+        ButtonFunction::onButtonExtEvent(b, evt);
         CameraControl::instance.onButtonEvt(b, evt);
         break;
 
     case Io::ButtonPreset2:
+        ButtonFunction::onButtonExtEvent(b, evt);
         CameraControl::instance.onButtonEvt(b, evt);
         break;
 
     case Io::ButtonCameraClick:
+        ButtonFunction::onButtonExtEvent(b, evt);
         CameraControl::instance.onButtonEvt(b, evt);
         break;
     }

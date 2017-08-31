@@ -226,7 +226,7 @@ void FlightManager::onFlyButtonEvt(Button *b, Button::Event evt)
         // if we're on the ground and not yet armed,
         // FLY button click puts us into FLY (Loiter) mode
         command.set(Command::FlyButtonClick);
-        Haptic::startPattern(Haptic::SingleShort);
+        Haptic::startPattern(Haptic::SingleMedium);
         break;
 
     default:
@@ -310,7 +310,7 @@ void FlightManager::onPauseButtonEvt(Button *b, Button::Event e)
     if (e == Button::ClickRelease) {
         if (inFlight()) {
             command.set(Command::PauseButtonClick);
-            Haptic::startPattern(Haptic::SingleShort);
+            Haptic::startPattern(Haptic::SingleMedium);
         }
     }
 }
