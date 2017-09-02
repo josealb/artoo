@@ -12,13 +12,13 @@ const UiAlertManager::Alert UiAlertManager::alerts[] = {
     { Red, NoHaptic, FullScreenModal, NO_TIMEOUT, DismissNone, "Calibrating ", "altitude", "Please wait", NULL },
 
     // CompassCalRequired
-    { Red, HighHaptic, FullScreenModal, NO_TIMEOUT, DismissNone, "Compass ", "error", "Please calibrate compass using\nmobile app", NULL },
+    { Red, HighHaptic, FullScreenModal, NO_TIMEOUT, DismissNone, "Compass ", "error", "Please calibrate compass using\nmobile app and reboot solo", NULL },
 
     // CompassInterference
     { Red, NoHaptic, FullScreenModal, NO_TIMEOUT, DismissNone, "Magnetic ", "interference", "Move Solo away from metal objects", NULL },
 
     // LevelError
-    { Red, MedHaptic, FullScreenModal, NO_TIMEOUT, DismissNone, "Level ", "error", "Please calibrate level using\nmobile app", NULL },
+    { Red, MedHaptic, FullScreenModal, NO_TIMEOUT, DismissNone, "Level ", "error", "Please calibrate level using\nmobile app and reboot solo", NULL },
 
     // CalibrationFailed
     { Red, MedHaptic, FullScreenModal, NO_TIMEOUT, DismissA, "Motion ", "detected", "Take off from a steady surface", NULL },
@@ -29,7 +29,7 @@ const UiAlertManager::Alert UiAlertManager::alerts[] = {
     /// Pre-flight - Arm
 
     // CantArmWhileLeaning
-    { Orange, NoHaptic, FullScreenModal, NO_TIMEOUT, DismissNone, "Uneven ", "surface", "Solo must be level for takeoff\nMove Solo to a flat surface", NULL },
+    { Orange, NoHaptic, FullScreenModal, 5000, DismissNone, "Uneven ", "surface", "Solo must be level for takeoff\nMove Solo to a flat surface", NULL },
 
     // VehicleCalibrating
     { Orange, NoHaptic, FullScreenModal, NO_TIMEOUT, DismissNone, "Calibrating ", "Solo", "Please wait", NULL },
@@ -44,7 +44,7 @@ const UiAlertManager::Alert UiAlertManager::alerts[] = {
     { Green, NoHaptic, FullScreenModal, NO_TIMEOUT, DismissA, "Calibrated ", "compass", NULL, "Press A to dismiss\nthen reboot solo" },
 
     // ThrottleError
-    { Orange, LowHaptic, FullScreenModal, NO_TIMEOUT, DismissNone, "Lower ", "throttle", "This flight mode requires low\nthrottle before starting motors", NULL },
+    { Orange, LowHaptic, FullScreenModal, 5000, DismissNone, "Lower ", "throttle", "This flight mode requires low\nthrottle before starting motors", NULL },
 
     // VehicleRequiresService // TODO: duplicate of CalibrationFailed, should just change logic in code
     { Red, HighHaptic, FullScreenModal, NO_TIMEOUT, DismissNone, "Calibration ", "error", "Please restart Solo", NULL },
@@ -124,7 +124,7 @@ const UiAlertManager::Alert UiAlertManager::alerts[] = {
     { Red, LowHaptic, FullScreenModal, 5000, DismissNone, "Maximum ", "altitude", "Solo has reached preset\nmaximum altitude", NULL },
 
     // CrashDetected
-    { Red, HighHaptic, FullScreenModal, NO_TIMEOUT, DismissA, "Crash ", "detected", "Use 3DR Solo app to\nlog a support ticket", "Press A to dismiss" },
+    { Red, HighHaptic, FullScreenModal, NO_TIMEOUT, DismissA, "Crash ", "detected", "Hopefully nothing too\nexpensive broke", "Press A to dismiss" },
 
     // LandingComplete
     { Green, NoHaptic, HintBoxBanner, 5000, DismissNone, NULL, NULL, NULL, NULL },
